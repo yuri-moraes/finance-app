@@ -9,7 +9,10 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = {
-  origin: "https://finance-app-mu-azure.vercel.app/",
+  origin: [
+    "https://finance-app-mu-azure.vercel.app",
+    "http://localhost:3000"
+  ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   credentials: true,
   optionsSuccessStatus: 204,
