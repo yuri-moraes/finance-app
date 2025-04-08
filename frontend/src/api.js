@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // Define a URL base para as requisições
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'https://finance-app-py76.onrender.com';
 
 /* FUNÇÕES PARA GANHOS (incomes) */
 
