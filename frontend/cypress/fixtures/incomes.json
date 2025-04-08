@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "name": "Salário Mock",
+    "value": 3000,
+    "date": "2025-05-10",
+    "paymentType": "mensal"
+  }
+]

@@ -1,0 +1,100 @@
+.list-page-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.list-page-container h2 {
+  margin-bottom: 1rem;
+}
+
+.list-page {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.item-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.item-details .payment-icon {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+  color: #555;
+}
+
+.item-details input,
+.item-details select {
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item-date {
+  min-width: 90px;
+  color: #777; 
+  font-size: 0.9rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+}
+.edit-button:hover {
+  background-color: #43a047;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+.delete-button:hover {
+  background-color: #e53935;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
