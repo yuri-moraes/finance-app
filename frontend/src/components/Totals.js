@@ -1,12 +1,9 @@
-// src/components/Totals.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './Totals.css';
 import { FaBalanceScale } from 'react-icons/fa';
-
-// Exemplos de ícones do React Icons
-import { FaWallet, FaShoppingCart } from 'react-icons/fa';
+import { FaWallet, FaShoppingCart, FaMousePointer } from 'react-icons/fa';
 
 const Totals = ({ totalIncome, totalExpense, leftover }) => {
   const navigate = useNavigate();
@@ -20,11 +17,11 @@ const Totals = ({ totalIncome, totalExpense, leftover }) => {
   };
 
   const isNegative = leftover < 0;
-
   const leftoverClass = isNegative ? 'negative-leftover' : 'positive-leftover';
 
   return (
     <section className="totals-section">
+      {/* Ganho Total */}
       <motion.div
         className="total-card income-total clickable"
         onClick={handleIncomeClick}
@@ -44,10 +41,11 @@ const Totals = ({ totalIncome, totalExpense, leftover }) => {
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
         >
-          Clique para ver detalhes
+          <FaMousePointer style={{ marginRight: '6px' }} />
         </motion.span>
       </motion.div>
 
+      {/* Despesa Total */}
       <motion.div
         className="total-card expense-total clickable"
         onClick={handleExpenseClick}
@@ -67,27 +65,29 @@ const Totals = ({ totalIncome, totalExpense, leftover }) => {
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
         >
-          Clique para ver detalhes
+          <FaMousePointer style={{ marginRight: '6px' }} />
         </motion.span>
       </motion.div>
 
+      {/* Sobra */}
       <motion.div
-            className={`total-card expense-total ${leftoverClass}`}
-            initial={{ x: 0, opacity: 0 }}
-            animate={{
-              opacity: 1,
-              x: isNegative ? [0, -5, 5, -5, 5, 0] : 0
-            }}
-            transition={{
-              duration: isNegative ? 0.6 : 0.5, delay: 0.2
-            }}
-          >
-            <div className="totals-card-header">
-              <FaBalanceScale className="leftover-icon" />
-              <h2>Sobra</h2>
-            </div>
-            <p>R$ {leftover.toFixed(2)}</p>
-          </motion.div>
+        className={`total-card expense-total ${leftoverClass}`}
+        initial={{ x: 0, opacity: 0 }}
+        animate={{
+          opacity: 1,
+          x: isNegative ? [0, -5, 5, -5, 5, 0] : 0
+        }}
+        transition={{
+          duration: isNegative ? 0.6 : 0.5,
+          delay: 0.2
+        }}
+      >
+        <div className="totals-card-header">
+          <FaBalanceScale className="leftover-icon" />
+          <h2>Sobra</h2>
+        </div>
+        <p>R$ {leftover.toFixed(2)}</p>
+      </motion.div>
     </section>
   );
 };
