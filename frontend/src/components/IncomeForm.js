@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { FaWallet } from 'react-icons/fa';
 
 const IncomeForm = ({ onSubmit }) => {
-  // Desestruturamos as funções do react-hook-form
   const {
     register,
     handleSubmit,
@@ -13,11 +12,13 @@ const IncomeForm = ({ onSubmit }) => {
     reset
   } = useForm();
 
-  // Função local que recebe dados válidos e chama a prop "onSubmit"
   const handleFormSubmit = (data) => {
     onSubmit(data);
-    reset(); // limpa o formulário
+    reset(); // limpa o formulário após envio
   };
+
+  const today = new Date().toISOString().split('T')[0];
+  const minDate = '1920-01-01';
 
   return (
     <motion.div
@@ -35,6 +36,7 @@ const IncomeForm = ({ onSubmit }) => {
           Nome:
           <input
             type="text"
+            placeholder="Ex.: Salário da Empresa"
             {...register('name', {
               required: 'Nome do ganho é obrigatório',
               maxLength: {
@@ -55,6 +57,7 @@ const IncomeForm = ({ onSubmit }) => {
           <input
             type="number"
             step="0.01"
+            placeholder="Ex.: 2500.00"
             {...register('value', {
               required: 'Valor é obrigatório',
               min: {
@@ -70,6 +73,9 @@ const IncomeForm = ({ onSubmit }) => {
           Data:
           <input
             type="date"
+            min={minDate}
+            max={today}
+            placeholder="Selecione a data"
             {...register('date', {
               required: 'Data é obrigatória'
             })}

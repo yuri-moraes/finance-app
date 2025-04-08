@@ -1,3 +1,4 @@
+// src/components/ExpenseForm.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -13,8 +14,11 @@ const ExpenseForm = ({ onSubmit }) => {
 
   const handleFormSubmit = (data) => {
     onSubmit(data);
-    reset(); // limpa formulário
+    reset(); // limpa o formulário
   };
+
+  const today = new Date().toISOString().split('T')[0];
+  const minDate = '1920-01-01';
 
   return (
     <motion.div
@@ -32,6 +36,7 @@ const ExpenseForm = ({ onSubmit }) => {
           Nome:
           <input
             type="text"
+            placeholder="Ex.: Supermercado"
             {...register('name', {
               required: 'Nome da despesa é obrigatório',
               maxLength: {
@@ -52,6 +57,7 @@ const ExpenseForm = ({ onSubmit }) => {
           <input
             type="number"
             step="0.01"
+            placeholder="Ex.: 120.50"
             {...register('value', {
               required: 'Valor é obrigatório',
               min: {
@@ -67,6 +73,9 @@ const ExpenseForm = ({ onSubmit }) => {
           Data:
           <input
             type="date"
+            max={today}
+            min={minDate}
+            placeholder="Selecione a data"
             {...register('date', {
               required: 'Data é obrigatória'
             })}
